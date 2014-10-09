@@ -48,6 +48,10 @@ public class Pong extends JFrame implements ActionListener , KeyListener
     
     private static Random rx1 = new Random(10338);
     
+    private static int stupidai1 = 1;
+    private static int stupidai2 = 1;
+    
+    
     @SuppressWarnings("LeakingThisInConstructor")
     public Pong() {
         timer = new Timer(5,this);
@@ -90,7 +94,25 @@ public class Pong extends JFrame implements ActionListener , KeyListener
             p2Y += p2Speed*p2Dir*2;
         }
         
+        StupidAI1();
+        StupidAI2();
         updateGameBall();
+    }
+    
+    public void StupidAI1()
+    {
+        If (stupidai1 == 1)
+            If(p1Y < gameBall.getY())
+            p1Y += p1Speed*2;
+            else p1Y += p1Speed*-2;
+    }
+    
+    public void StupidAI2()
+    {
+        If (stupidai2 == 1)
+            If(p2Y < gameBall.getY())
+            p2Y += p2Speed*2;
+            else p2Y += p2Speed*-2;
     }
     
     public void updateGameBall() {
